@@ -1,0 +1,31 @@
+class RestaurantMenu:
+    def __init__(self):
+        self.menu_items = {}
+
+    def add_item(self, item_name, ingredients):
+        self.menu_items[item_name] = ingredients
+
+    def check_allergens(self, item_name, allergens):
+        if item_name in self.menu_items:
+            ingredients = self.menu_items[item_name]
+            allergenic_ingredients = [ingredient for ingredient in ingredients if ingredient.lower() in allergens]
+            if allergenic_ingredients:
+                print(f"The item '{item_name}' contains allergenic ingredients: {', '.join(allergenic_ingredients)}")
+            else:
+                print(f"The item '{item_name}' does not contain any allergenic ingredients.")
+        else:
+            print(f"No item found with the name '{item_name}' in the menu.")
+
+# Usage example
+menu = RestaurantMenu()
+
+menu.add_item("Pasta", ["Wheat", "Eggs", "Cheese"])
+menu.add_item("Salad", ["Lettuce", "Tomatoes", "Cucumbers"])
+menu.add_item("Soup", ["Chicken", "Carrots", "Onions"])
+
+allergens_to_check = ["Wheat", "Eggs"]
+
+menu.check_allergens("Pasta", allergens_to_check)
+menu.check_allergens("Salad", allergens_to_check)
+menu.check_allergens("Soup", allergens_to_check)
+menu.check_allergens("Pizza", allergens_to_check)
