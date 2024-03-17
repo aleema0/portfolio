@@ -1,0 +1,33 @@
+class BusinessCardTracker:
+    def __init__(self):
+        self.cards = []
+
+    def add_card(self, name, email, phone):
+        self.cards.append({'name': name, 'email': email, 'phone': phone})
+        print(f"Added business card for {name}")
+
+    def display_cards(self):
+        print("Business Cards:")
+        for card in self.cards:
+            print(f"Name: {card['name']}, Email: {card['email']}, Phone: {card['phone']}")
+
+    def visualize_cards(self):
+        print("Visual Representation of Business Cards:")
+        for card in self.cards:
+            print(f"====================")
+            print(f"| Name: {card['name']}")
+            print(f"| Email: {card['email']}")
+            print(f"| Phone: {card['phone']}")
+            print(f"====================")
+
+# Usage example
+tracker = BusinessCardTracker()
+
+tracker.add_card("John Doe", "john.doe@example.com", "123-456-7890")
+tracker.add_card("Jane Smith", "jane.smith@example.com", "987-654-3210")
+
+tracker.display_cards()
+
+print("\n")
+
+tracker.visualize_cards()
